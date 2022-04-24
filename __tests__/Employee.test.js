@@ -1,4 +1,4 @@
-test('add employee name', () => {
+test('add employee', () => {
     const employee = new Employee("Haley");
 
     expect(employee.name).toBe("Haley");
