@@ -2,9 +2,7 @@ const generatePage = require('./src/page-template');
 
 const inquirer = require('inquirer');
 
-const managerQuestions = () => {
-    inquirer
-    .prompt([
+const managerQuestions = [
     {
         type: 'input',
         name: 'managerName',
@@ -31,8 +29,7 @@ const managerQuestions = () => {
         message: 'Employee Type:',
         choices: ["Engineer", "Intern", "Finish"]
     }
-]);
-};
+]
 
 const engineerQuestions = () => {
     inquirer.prompt([
@@ -55,28 +52,8 @@ const engineerQuestions = () => {
             type: 'input',
             name: 'engineerGitHub',
             message: 'Engineer GitHub username:'
-        },
-        {
-            type: 'input',
-            name: 'internName',
-            message: 'Intern Name:'
-        },
-        {
-            type: 'input',
-            name: 'internID',
-            message: 'Intern ID Number:'
-        },
-        {
-            type: 'input',
-            name: 'internEmail',
-            message: 'Intern Email:'
-        },
-        {
-            type: 'input',
-            name: 'internSchool',
-            message: 'Intern School'
         }
-    ])
+    ]);
 };
 
 const internQuestions = () => {
@@ -101,5 +78,13 @@ const internQuestions = () => {
             name: 'internSchool',
             message: 'Intern School'
         }
-    ])
+    ]);
 };
+
+function questions (){
+    inquirer.prompt(managerQuestions)
+    .then(engineerQuestions)
+    .then(internQuestions)
+};
+
+questions();
