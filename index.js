@@ -24,19 +24,21 @@ const managerQuestions = () => {
         type: 'input',
         name: 'managerOffice',
         message: 'Managers Office Number:'
-    },
-    {
-        type: 'list',
-        name: 'employeeType',
-        message: 'Employee Type:',
-        choices: ["Engineer", "Intern", "Finish"]
     }
 ]);
 };
 
-const employeeQuestions = () =>{
-    inquirer
-    .prompt([
+const employeeQuestions = (questionData) => {
+    if(!questionData.employees){
+        questionData.employees = [];
+    }
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'employeeType',
+            message: 'Employee Type:',
+            choices: ["Engineer", "Intern", "Finish"]
+        },
         {
             type: 'input',
             name: 'engineerName',
@@ -77,7 +79,17 @@ const employeeQuestions = () =>{
             name: 'internSchool',
             message: 'Intern School'
         }
-    ]);
+    ])
+    .then(employeeData => {
+        console.log(employeeData);
+        questionData.employees.push(employeeData);
+        console.log(questionData);
+        if(employeeData.employeeType){
+            return employeeQuestions(questionData);
+        } else {
+            return employeeQuestions;
+        }
+    })
 };
 
 employeeQuestions();
