@@ -16,5 +16,5 @@ module.exports = templateData => {
         <h1>My Team</h1>
     </header>
     </html>
-    `
+    `;
 }
