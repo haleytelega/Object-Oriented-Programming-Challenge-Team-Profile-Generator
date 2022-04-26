@@ -81,10 +81,20 @@ const internQuestions = () => {
     ]);
 };
 
-function questions (){
+function createTeam (){
     inquirer.prompt(managerQuestions)
-    .then(engineerQuestions)
-    .then(internQuestions)
+    .then(function (userInput) {
+        switch(userInput.employeeType){
+            case "Engineer":
+                engineerQuestions();
+                break;
+            case "Intern":
+                internQuestions();
+                break;
+            case "Finish":
+                break;
+        }
+    })
 };
 
-questions();
+createTeam();
