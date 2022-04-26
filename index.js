@@ -2,6 +2,8 @@ const generatePage = require('./src/page-template');
 
 const inquirer = require('inquirer');
 
+const fs = require('fs');
+
 const managerQuestions = [
     {
         type: 'input',
@@ -52,8 +54,15 @@ const engineerQuestions = () => {
             type: 'input',
             name: 'engineerGitHub',
             message: 'Engineer GitHub username:'
+        },
+        {
+        type: 'list',
+        name: 'employeeType',
+        message: 'Employee Type:',
+        choices: ["Engineer", "Intern", "Finish"]
         }
     ]);
+    createTeam();
 };
 
 const internQuestions = () => {
@@ -77,8 +86,15 @@ const internQuestions = () => {
             type: 'input',
             name: 'internSchool',
             message: 'Intern School'
+        },
+        {
+            type: 'list',
+            name: 'employeeType',
+            message: 'Employee Type:',
+            choices: ["Engineer", "Intern", "Finish"]
         }
     ]);
+    createTeam();
 };
 
 function createTeam (){
@@ -96,5 +112,6 @@ function createTeam (){
         }
     })
 };
+
 
 createTeam();
