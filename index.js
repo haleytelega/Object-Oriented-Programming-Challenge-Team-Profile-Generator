@@ -24,21 +24,18 @@ const managerQuestions = () => {
         type: 'input',
         name: 'managerOffice',
         message: 'Managers Office Number:'
+    },
+    {
+        type: 'list',
+        name: 'employeeType',
+        message: 'Employee Type:',
+        choices: ["Engineer", "Intern", "Finish"]
     }
 ]);
 };
 
-const employeeQuestions = (questionData) => {
-    if(!questionData.employees){
-        questionData.employees = [];
-    }
-    return inquirer.prompt([
-        {
-            type: 'list',
-            name: 'employeeType',
-            message: 'Employee Type:',
-            choices: ["Engineer", "Intern", "Finish"]
-        },
+const engineerQuestions = () => {
+    inquirer.prompt([
         {
             type: 'input',
             name: 'engineerName',
@@ -80,16 +77,29 @@ const employeeQuestions = (questionData) => {
             message: 'Intern School'
         }
     ])
-    .then(employeeData => {
-        console.log(employeeData);
-        questionData.employees.push(employeeData);
-        console.log(questionData);
-        if(employeeData.employeeType){
-            return employeeQuestions(questionData);
-        } else {
-            return employeeQuestions;
-        }
-    })
 };
 
-employeeQuestions();
+const internQuestions = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'Intern Name:'
+        },
+        {
+            type: 'input',
+            name: 'internID',
+            message: 'Intern ID Number:'
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: 'Intern Email:'
+        },
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: 'Intern School'
+        }
+    ])
+};
