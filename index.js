@@ -24,14 +24,15 @@ const managerQuestions = [
         type: 'input',
         name: 'managerOffice',
         message: 'Managers Office Number:'
-    },
-    {
-        type: 'list',
-        name: 'employeeType',
-        message: 'Employee Type:',
-        choices: ["Engineer", "Intern", "Finish"]
     }
 ]
+
+const menu = [ {
+    type: 'list',
+    name: 'employeeType',
+    message: 'Employee Type:',
+    choices: ["Engineer", "Intern", "Finish"]
+}];
 
 const engineerQuestions = () => {
     inquirer.prompt([
@@ -54,16 +55,16 @@ const engineerQuestions = () => {
             type: 'input',
             name: 'engineerGitHub',
             message: 'Engineer GitHub username:'
-        },
-        {
-        type: 'list',
-        name: 'employeeType',
-        message: 'Employee Type:',
-        choices: ["Engineer", "Intern", "Finish"]
         }
-    ]);
-    createTeam();
-};
+    ])
+    .then(ans => {
+        // TODO: do something with the answers.
+        createTeam();
+        })
+        .catch(err => {
+        // TODO: handle errors here...
+        });
+    };  
 
 const internQuestions = () => {
     inquirer.prompt([
@@ -86,19 +87,27 @@ const internQuestions = () => {
             type: 'input',
             name: 'internSchool',
             message: 'Intern School'
-        },
-        {
-            type: 'list',
-            name: 'employeeType',
-            message: 'Employee Type:',
-            choices: ["Engineer", "Intern", "Finish"]
         }
-    ]);
+    ])    
+    .then(ans => {
+        // TODO: do something with the answers.
+        createTeam();
+        })
+        .catch(err => {
+        // TODO: handle errors here...
+        });
+};  
+
+function createManager() {
+    inquirer.prompt(managerQuestions)
+    .then(ans => {
+    // TODO: do something with the answers...
     createTeam();
-};
+    });
+}
 
 function createTeam (){
-    inquirer.prompt(managerQuestions)
+    inquirer.prompt(menu)
     .then(function (userInput) {
         switch(userInput.employeeType){
             case "Engineer":
@@ -114,4 +123,4 @@ function createTeam (){
 };
 
 
-createTeam();
+createManager();
