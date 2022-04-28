@@ -58,11 +58,10 @@ const engineerQuestions = () => {
         }
     ])
     .then(ans => {
-        // TODO: do something with the answers.
         createTeam();
         })
         .catch(err => {
-        // TODO: handle errors here...
+            return console.log(err);
         });
     };  
 
@@ -90,18 +89,24 @@ const internQuestions = () => {
         }
     ])    
     .then(ans => {
-        // TODO: do something with the answers.
         createTeam();
         })
         .catch(err => {
-        // TODO: handle errors here...
+            return console.log(err);
         });
 };  
+
+function writeToFile(filename, data) {
+    fs.writeFile(filename, data, (err) => {
+        if (err) {
+            return console.log(err);
+        }
+    })
+};
 
 function createManager() {
     inquirer.prompt(managerQuestions)
     .then(ans => {
-    // TODO: do something with the answers...
     createTeam();
     });
 }
@@ -120,6 +125,9 @@ function createTeam (){
                 break;
         }
     })
+    .then(function (userInput) {
+        writeToFile(`index.html`, generatePage(userInput));
+    });
 };
 
 
