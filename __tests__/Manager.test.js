@@ -1,12 +1,13 @@
 test('add manager office number', () => {
-    const office = new Office('1');
+    const manager = new Manager('haley', 3215, 'gmail.com');
 
-    expect(office.number).toBe('1');
-});
-// test('add employee', () => {
-//     const employee = new Employee("Haley");
+    expect(manager.getOffice()).toEqual(manager.officeNumber)
+})
 
-//     expect(employee.name).toBe("Haley");
-//     expect(employee.id).toBe(number);
-//     expect(employee.email).toBe(email);
+// test('add manager', () => {
+//     const manager = new Manager("Haley");
+
+//     expect(manager.name).toBe("Haley");
+//     expect(manager.id).toBe(number);
+//     expect(manager.email).toBe(email);
 // })
