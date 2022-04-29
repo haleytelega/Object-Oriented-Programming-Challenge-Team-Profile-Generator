@@ -1,5 +1,8 @@
 const generatePage = require('./src/page-template');
-
+const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern');
+const Engineer = require('./lib/Engineer');
+const Employee = require('./lib/Employee');
 const inquirer = require('inquirer');
 
 const fs = require('fs');
@@ -58,6 +61,7 @@ const engineerQuestions = () => {
         }
     ])
     .then(ans => {
+        this.engineer = new Engineer(ans.engineerName, ans.engineerID, ans.engineerEmail, ans.engineerGitHub);
         createTeam();
         })
         .catch(err => {
@@ -89,6 +93,7 @@ const internQuestions = () => {
         }
     ])    
     .then(ans => {
+        this.intern = new Intern(ans.internName, ans.internID, ans.internEmail, ans.internSchool);
         createTeam();
         })
         .catch(err => {
@@ -107,6 +112,7 @@ function writeToFile(filename, data) {
 function createManager() {
     inquirer.prompt(managerQuestions)
     .then(ans => {
+        this.manager = new Manager(ans.managerName, ans.managerID, ans.managerEmail, ans.managerOffice);
     createTeam();
     });
 }

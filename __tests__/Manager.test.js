@@ -3,11 +3,10 @@ test('add manager office number', () => {
 
     expect(office.number).toBe('1');
 });
+// test('add employee', () => {
+//     const employee = new Employee("Haley");
 
-test('add employee', () => {
-    const employee = new Employee("Haley");
-
-    expect(employee.name).toBe("Haley");
-    expect(employee.id).toBe(number);
-    expect(employee.email).toBe(email);
-})
+//     expect(employee.name).toBe("Haley");
+//     expect(employee.id).toBe(number);
+//     expect(employee.email).toBe(email);
+// })
