@@ -2,10 +2,9 @@ const generatePage = require('./src/page-template');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
-const Employee = require('./lib/Employee');
 const inquirer = require('inquirer');
+const team = [];
 const fs = require('fs');
-const team  = [];
 
 const managerQuestions = [
     {
@@ -114,8 +113,7 @@ function writeToFile(filename, data) {
 function createManager() {
     inquirer.prompt(managerQuestions)
     .then(ans => {
-        const manager = new Manager(ans.managerName, ans.managerID, ans.managerEmail, ans.managerOffice);
-        team.push(manager)
+        this.manager = new Manager(ans.managerName, ans.managerID, ans.managerEmail, ans.managerOffice);
     createTeam();
     });
 }
@@ -134,8 +132,7 @@ function createTeam (){
                 break;
         }
     })
-    .then(function (team) {
-        console.log(team)
+    .then(function (userInput) {
         writeToFile(`index.html`, generatePage(team));
     });
 };
