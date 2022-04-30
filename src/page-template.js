@@ -1,3 +1,21 @@
+const engineerPage = engineer => {
+    return `
+    <section>
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+    <h5 class="card-title">${engineer.getName()}</h5>
+    <h6 class="card-title">${engineer.getRole()}</h6>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${engineer.getId()}</li>
+        <li class="list-group-item">Email: <a href="${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+        <li class="list-group-item">Office Number: ${engineer.getOfficeNumber()}</li>
+        </ul>
+        </div>
+    </div>
+    </section>
+    `
+}
+
 const generatePage = () => {
     return `
     <!DOCTYPE html>
@@ -15,6 +33,21 @@ const generatePage = () => {
     <header>
         <h1>My Team</h1>
     </header>
+
+    <section>
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+    <h5 class="card-title">${manager.getName()}</h5>
+    <h6 class="card-title">${manager.getRole()}</h6>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${manager.getId()}</li>
+        <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+        <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
+        </ul>
+        </div>
+    </div>
+    ${engineerPage(engineer)}</div>
+    </section>
     </html>
     `;
 }

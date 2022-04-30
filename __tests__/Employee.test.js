@@ -12,7 +12,7 @@ test('add employee id', () => {
 
 test('add employee email', () => {
     const email = new Employee("Haley", "123", "Haley@gmail.com");
-    expect(email.getEmail()).toBe("Haley@gmail.com")
+    expect(email.getEmail()).toBe("Haley@gmail.com");
 });
 
 test('add employee role', () => {
