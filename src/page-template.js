@@ -1,49 +1,22 @@
 
-const generateEngineer = engineerArr => {
-    return `
-        ${engineerArr
-        .filter(({ engineer }) => engineer)
-        .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
-            return `
-        <div class="card" style="width: 18rem;">
+const generateEngineer = engineer => {
+    return`
+    <div class="card" style="width: 18rem;">
         <div class="card-header bg-primary text-white">
             <h5 class="card-title">${engineer.getName()}</h5>
             <h6 class="card-title">${engineer.getRole()}</h6>
+            <ul class="list-group list-group-flush">
         </div>
         <div class="card-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${engineer.getId()}</li>
-            <li class="list-group-item">Email: <a href="${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">Office Number: ${engineer.getGitHub()}</li>
-        </ul>
+                <li class="list-group-item">ID: ${engineer.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                <li class="list-group-item">Office Number: ${engineer.getGitHub()}</li>
+            </ul>
         </div>
-        </div>
-    `;
-    })
-    .join('')}
-    
-    ${engineerArr
-        .filter(({ engineer }) => engineer)
-        .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
-        return `
-        <div class="card" style="width: 18rem;">
-        <div class="card-header bg-primary text-white">
-            <h5 class="card-title">${engineer.getName()}</h5>
-            <h6 class="card-title">${engineer.getRole()}</h6>
-        </div>
-        <div class="card-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${engineer.getId()}</li>
-            <li class="list-group-item">Email: <a href="${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">Office Number: ${engineer.getGitHub()}</li>
-        </ul>
-        </div>
-        </div>
-    `;
-    })
-    .join('')}
-    `;
+    </div>
+    `
 }
+
 
 const generatePage = () => {
     return `

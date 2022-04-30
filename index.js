@@ -4,8 +4,8 @@ const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 const Employee = require('./lib/Employee');
 const inquirer = require('inquirer');
-
 const fs = require('fs');
+const team  = [];
 
 const managerQuestions = [
     {
@@ -61,7 +61,8 @@ const engineerQuestions = () => {
         }
     ])
     .then(ans => {
-        this.engineer = new Engineer(ans.engineerName, ans.engineerID, ans.engineerEmail, ans.engineerGitHub);
+        const engineer = new Engineer(ans.engineerName, ans.engineerID, ans.engineerEmail, ans.engineerGitHub);
+        team.push(engineer);
         createTeam();
         })
         .catch(err => {
@@ -93,7 +94,8 @@ const internQuestions = () => {
         }
     ])    
     .then(ans => {
-        this.intern = new Intern(ans.internName, ans.internID, ans.internEmail, ans.internSchool);
+        const intern = new Intern(ans.internName, ans.internID, ans.internEmail, ans.internSchool);
+        team.push(intern);
         createTeam();
         })
         .catch(err => {
@@ -112,7 +114,8 @@ function writeToFile(filename, data) {
 function createManager() {
     inquirer.prompt(managerQuestions)
     .then(ans => {
-        this.manager = new Manager(ans.managerName, ans.managerID, ans.managerEmail, ans.managerOffice);
+        const manager = new Manager(ans.managerName, ans.managerID, ans.managerEmail, ans.managerOffice);
+        team.push(manager)
     createTeam();
     });
 }
@@ -131,8 +134,9 @@ function createTeam (){
                 break;
         }
     })
-    .then(function (userInput) {
-        writeToFile(`index.html`, generatePage(userInput));
+    .then(function (team) {
+        console.log(team)
+        writeToFile(`index.html`, generatePage(team));
     });
 };
 
