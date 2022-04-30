@@ -2,7 +2,7 @@
 const generateEngineer = engineerArr => {
     return `
         ${engineerArr
-        .filter(({ engineer }) => engineerName)
+        .filter(({ engineer }) => engineer)
         .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
             return `
         <div class="card" style="width: 18rem;">
@@ -23,7 +23,7 @@ const generateEngineer = engineerArr => {
     .join('')}
     
     ${engineerArr
-        .filter(({ engineer }) => engineerName)
+        .filter(({ engineer }) => engineer)
         .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
         return `
         <div class="card" style="width: 18rem;">
