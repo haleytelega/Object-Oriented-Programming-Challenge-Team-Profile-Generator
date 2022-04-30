@@ -1,13 +1,16 @@
-test('add github username', () => {
-    const github = new GitHub('test');
+const Engineer = require('../lib/Engineer');
 
-    expect(github).toBe('test');
-});
+test('add engineer github username', () => {
+    const engineer = new Engineer('haley', 3215, 'gmail.com', 'githubHaley');
+    expect(engineer.githubUserName).toEqual('githubHaley');
+})
 
-test('add employee', () => {
-    const employee = new Employee("Haley");
+test('get engineer github username', () => {
+    const engineer = new Engineer('haley', 3215, 'gmail.com', 'githubHaley');
+    expect(engineer.getGitHub()).toBe('githubHaley');
+})
 
-    expect(employee.name).toBe("Haley");
-    expect(employee.id).toBe(number);
-    expect(employee.email).toBe(email);
+test('get engineer role', () => {
+    const engineer = new Engineer('haley', 3215, 'gmail.com', 'githubHaley');
+    expect(engineer.getRole()).toBe("Engineer");
 })

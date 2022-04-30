@@ -1,13 +1,17 @@
-test('add manager office number', () => {
-    const manager = new Manager('haley', 3215, 'gmail.com');
+const Manager = require('../lib/Manager');
 
-    expect(manager.getOffice()).toEqual(manager.officeNumber)
+test('add manager office number', () => {
+    const manager = new Manager('haley', 3215, 'gmail.com', '1');
+
+    expect(manager.officeNumber).toEqual('1')
 })
 
-// test('add manager', () => {
-//     const manager = new Manager("Haley");
+test('add manager role', () => {
+    const manager = new Manager('haley', 3215, 'gmail.com', '1');
+    expect(manager.getRole()).toBe("Manager");
+});
 
-//     expect(manager.name).toBe("Haley");
-//     expect(manager.id).toBe(number);
-//     expect(manager.email).toBe(email);
-// })
+test('get office number', () => {
+    const manager = new Manager('haley', 3215, 'gmail.com', '1');
+    expect(manager.getOfficeNumber()).toBe("1");
+})
