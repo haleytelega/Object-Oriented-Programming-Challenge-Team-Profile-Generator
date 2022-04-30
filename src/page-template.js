@@ -1,21 +1,48 @@
-const engineerPage = engineer => {
+
+const generateEngineer = engineerArr => {
     return `
-    <section>
-    <div class="card" style="width: 18rem;">
-    <div class="card-header bg-primary text-white">
-        <h5 class="card-title">${engineer.getName()}</h5>
-        <h6 class="card-title">${engineer.getRole()}</h6>
-    </div>
-    <div class="card-body">
+        ${engineerArr
+        .filter(({ engineerName }) => engineerName)
+        .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
+            return `
+        <div class="card" style="width: 18rem;">
+        <div class="card-header bg-primary text-white">
+            <h5 class="card-title">${engineerName.getName()}</h5>
+            <h6 class="card-title">${employeeType.getRole()}</h6>
+        </div>
+        <div class="card-body">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${engineer.getId()}</li>
-            <li class="list-group-item">Email: <a href="${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">Office Number: ${engineer.getGitHub()}</li>
+            <li class="list-group-item">ID: ${engineerID.getId()}</li>
+            <li class="list-group-item">Email: <a href="${engineerEmail.getEmail()}">${engineerEmail.getEmail()}</a></li>
+            <li class="list-group-item">Office Number: ${engineerGitHub.getGitHub()}</li>
         </ul>
-    </div>
-    </div>
-    </section>
-    `
+        </div>
+        </div>
+    `;
+    })
+    .join('')}
+    
+    ${engineerArr
+    .filter(({ engineerName }) => !engineerName)
+    .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
+        return `
+        <div class="card" style="width: 18rem;">
+        <div class="card-header bg-primary text-white">
+            <h5 class="card-title">${engineerName.getName()}</h5>
+            <h6 class="card-title">${employeeType.getRole()}</h6>
+        </div>
+        <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${engineerID.getId()}</li>
+            <li class="list-group-item">Email: <a href="${engineerEmail.getEmail()}">${engineerEmail.getEmail()}</a></li>
+            <li class="list-group-item">Office Number: ${engineerGitHub.getGitHub()}</li>
+        </ul>
+        </div>
+        </div>
+    `;
+    })
+    .join('')}
+    `;
 }
 
 const generatePage = () => {
@@ -49,7 +76,6 @@ const generatePage = () => {
                 <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
             </ul>
         </div>
-        <div> ${engineerPage(engineer)} </div>
     </div>
     </section>
     </html>
