@@ -77,6 +77,7 @@ const generatePage = () => {
             </ul>
         </div>
     </div>
+    <div>${generateEngineer(engineer)}</div>
     </section>
     </html>
     `;
