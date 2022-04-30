@@ -2,19 +2,19 @@
 const generateEngineer = engineerArr => {
     return `
         ${engineerArr
-        .filter(({ engineerName }) => engineerName)
+        .filter(({ engineer }) => engineerName)
         .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
             return `
         <div class="card" style="width: 18rem;">
         <div class="card-header bg-primary text-white">
-            <h5 class="card-title">${engineerName.getName()}</h5>
-            <h6 class="card-title">${employeeType.getRole()}</h6>
+            <h5 class="card-title">${engineer.getName()}</h5>
+            <h6 class="card-title">${engineer.getRole()}</h6>
         </div>
         <div class="card-body">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${engineerID.getId()}</li>
-            <li class="list-group-item">Email: <a href="${engineerEmail.getEmail()}">${engineerEmail.getEmail()}</a></li>
-            <li class="list-group-item">Office Number: ${engineerGitHub.getGitHub()}</li>
+            <li class="list-group-item">ID: ${engineer.getId()}</li>
+            <li class="list-group-item">Email: <a href="${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+            <li class="list-group-item">Office Number: ${engineer.getGitHub()}</li>
         </ul>
         </div>
         </div>
@@ -23,19 +23,19 @@ const generateEngineer = engineerArr => {
     .join('')}
     
     ${engineerArr
-    .filter(({ engineerName }) => !engineerName)
-    .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
+        .filter(({ engineer }) => engineerName)
+        .map(({ engineerName, engineerID, engineerEmail, engineerGitHub }) => {
         return `
         <div class="card" style="width: 18rem;">
         <div class="card-header bg-primary text-white">
-            <h5 class="card-title">${engineerName.getName()}</h5>
-            <h6 class="card-title">${employeeType.getRole()}</h6>
+            <h5 class="card-title">${engineer.getName()}</h5>
+            <h6 class="card-title">${engineer.getRole()}</h6>
         </div>
         <div class="card-body">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${engineerID.getId()}</li>
-            <li class="list-group-item">Email: <a href="${engineerEmail.getEmail()}">${engineerEmail.getEmail()}</a></li>
-            <li class="list-group-item">Office Number: ${engineerGitHub.getGitHub()}</li>
+            <li class="list-group-item">ID: ${engineer.getId()}</li>
+            <li class="list-group-item">Email: <a href="${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+            <li class="list-group-item">Office Number: ${engineer.getGitHub()}</li>
         </ul>
         </div>
         </div>
