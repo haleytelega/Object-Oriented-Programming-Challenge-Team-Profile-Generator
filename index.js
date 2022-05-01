@@ -113,7 +113,7 @@ function writeToFile(filename, data) {
 function createManager() {
     inquirer.prompt(managerQuestions)
     .then(ans => {
-        this.manager = new Manager(ans.managerName, ans.managerID, ans.managerEmail, ans.managerOffice);
+        team.push(new Manager(ans.managerName, ans.managerID, ans.managerEmail, ans.managerOffice));
     createTeam();
     });
 }
@@ -129,12 +129,10 @@ function createTeam (){
                 internQuestions();
                 break;
             case "Finish":
-                break;
+                writeToFile(`index.html`, generatePage(team));
         }
     })
-    .then(function (userInput) {
-        writeToFile(`index.html`, generatePage(team));
-    });
+
 };
 
 
