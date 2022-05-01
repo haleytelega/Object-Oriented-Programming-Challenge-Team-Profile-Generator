@@ -70,8 +70,13 @@ const generatePage = (team) => {
     </header>
 
     <section>
-
+    <div class="card-deck">
+    <div class="container">
+    <div class="row">
     ${html}
+    </div>
+    </div>
+    </div>
     </section>
     </html>
     `;
