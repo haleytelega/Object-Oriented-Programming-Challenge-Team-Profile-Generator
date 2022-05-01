@@ -73,7 +73,9 @@ const generatePage = (team) => {
     <div class="card-deck">
     <div class="container">
     <div class="row">
+    <div class="col d-flex justify-content-center">
     ${html}
+    </div>
     </div>
     </div>
     </div>
