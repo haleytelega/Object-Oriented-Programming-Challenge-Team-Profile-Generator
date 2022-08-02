@@ -16,7 +16,7 @@
 - [License](#license)
 
   ## Installation
-  What are the steps required to install your project? installation of node.js, node inquirer, jest
+  What are the steps required to install your project? installation of node.js, node inquirer, jest then run node index
 
   ## Usage
   Provide instructions and examples for use: Follow the prompts to create your team list, once finished, the webpage is automatically created.
